@@ -16,7 +16,16 @@ class Solution(object):
             right = right - 1
         return True
 
+    def isPalindromeByReverse(self, x):
+        if x < 0 or (x is not 0 and x % 10 == 0):
+            return False
+        reverse = 0
+        while reverse < x:
+            reverse = reverse * 10 + x % 10
+            x = x // 10
+        return (reverse == x) or (x == reverse // 10)
 
-x = 121
+
+x = 10
 sol = Solution()
-print(sol.isPalindrome(x))
+print(sol.isPalindromeByReverse(x))
