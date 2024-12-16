@@ -23,13 +23,8 @@ int main(){
     int N, B;
     fin >> N >> B;
     pair<int, int> pos[N];
-    int min_x = B+1, max_x = -1, min_y = B+1, max_y = -1;
     for(int i = 0; i < N; ++i){
         fin >> pos[i].first >> pos[i].second;
-        if(pos[i].first<min_x) min_x = pos[i].first;
-        if(pos[i].second<min_y) min_y = pos[i].second;
-        if(pos[i].first>max_x) max_x = pos[i].first;
-        if(pos[i].second>max_y) max_y = pos[i].second;
     }
 
     set<int> xs, ys;
