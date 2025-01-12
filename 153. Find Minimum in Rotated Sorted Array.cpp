@@ -1,16 +1,16 @@
 class Solution {
 public:
-    bool wordBreak(string s, vector<string>& wordDict) {
-        bool dp[s.size()+1];
-        for(int i = 0; i < s.size(); ++i) dp[i] = false;
-        dp[s.size()] = true;
-        for(int i = s.size()-1; i >= 0; --i){
-            for(auto& word : wordDict){
-                if(word.size()<=s.size()-i && s.substr(i, word.size())==word){
-                    dp[i] |= dp[i+word.size()];
-                }
+    int findMin(vector<int> &nums) {
+        int left = 0, right = nums.size()-1;
+        if(nums[left]<=nums[right]) return nums[left];
+        while(right!=left+1){
+            int mid = (left+right)>>1;
+            if(nums[mid]>nums[left]){
+                left = mid;
+            }else if(nums[mid]<nums[right]){
+                right = mid;
             }
         }
-        return dp[0];
+        return min(nums[left], nums[right]);
     }
 };
