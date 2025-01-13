@@ -9,4 +9,5 @@
 ###### 1/13
 - [416. Partition Equal Subset Sum](416.%20Partition%20Equal%20Subset%20Sum.cpp) dp[i]=subset sum是否可產生i，掃過nums一輪把dp填好。技巧是從數字大檢查到數字小的，這樣才不會重複用到同一個數字
 - 很多題目最直觀的想法都是recursion，可用decision tree的dfs處理，為了避免重複計算才用dp存答案查表
-- [435. Non-overlapping Intervals](435.%20Non-overlapping%20Intervals.cpp) 可用decision tree dfs，也可用dp、greedy。每次決定要留哪個interval時，greedy去選最早結束的interval，最大化後面intervals可使用的空間。
+- [435. Non-overlapping Intervals](435.%20Non-overlapping%20Intervals.cpp) 在一群intervals裡挑出最大數量的non-overlapping intervals。可用decision tree dfs，也可用dp、greedy。每次決定要留哪個interval時，greedy去選最早結束的interval，最大化後面intervals可使用的空間。
+- [84. Largest Rectangle in Histogram](84.%20Largest%20Rectangle%20in%20Histogram.cpp) 由左至右把heights存成monotonic stack，要存height和index，index是此height可以往左extend的最遠處
