@@ -16,3 +16,4 @@
 - [73. Set Matrix Zeroes](73.%20Set%20Matrix%20Zeroes.cpp) 檢查一個matrix，若出現0則將該行與該列都設為0。可利用第一行與第一列存哪幾行哪幾列要換成0，最後再特別檢查是否第一行或第一列要全設為0，這樣只需要額外O(1) space
 ###### 1/15
 - `priority_queue<type>`是max heap，`priority_queue<type, vector<type>, greater<type>>`是min heap
+- [703. Kth Largest Element in a Stream](703.%20Kth%20Largest%20Element%20in%20a%20Stream.cpp) 求一串數字裡第k大的數字時，可以用min heap存這些數字，並確保min heap的size==k，比k大就pop。這樣min heap的top就會是所求
