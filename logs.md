@@ -20,3 +20,4 @@
 - [90. Subsets II](90.%20Subsets%20II.cpp) 有重複的數字並要求所有subset。為了避免產生重複的subset，要調整取的index。[40. Combination Sum II](40.%20Combination%20Sum%20II.cpp) 也是一樣的想法
 - map: lower_bound(k)回傳≥k的第一個element的ptr，upper_bound(k)回傳>k的第一個element的ptr。prev(it) or it-1會回傳it的前一個ptr
 - [621. Task Scheduler](621.%20Task%20Scheduler.cpp) 只記task的freq，把他們存成max heap(最多26個elements)，並利用queue決定什麼時候從pq被pop的element要push回去
+- [134. Gas Station](134.%20Gas%20Station.cpp) 要是sum(gas[i])-sum(cost[i])≥0的話則必有解，用greedy只需要O(n)。greedy會成功是因為任何經過的gas station的sum(gas[i])-sum(cost[i]) prefix都有surplus或至少沒有deficit，否則也不可能走得到這裡，那扣除了prefix之後(也就是考慮已經經過的gas station是starting point的可能性)只會更無法達成條件，因此可以一次否決掉已經經過的gas station，在剩下的gas station中找答案
