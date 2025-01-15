@@ -19,3 +19,4 @@
 - [703. Kth Largest Element in a Stream](703.%20Kth%20Largest%20Element%20in%20a%20Stream.cpp) 求一串數字裡第k大的數字時，可以用min heap存這些數字，並確保min heap的size==k，比k大就pop。這樣min heap的top就會是所求
 - [90. Subsets II](90.%20Subsets%20II.cpp) 有重複的數字並要求所有subset。為了避免產生重複的subset，要調整取的index。[40. Combination Sum II](40.%20Combination%20Sum%20II.cpp) 也是一樣的想法
 - map: lower_bound(k)回傳≥k的第一個element的ptr，upper_bound(k)回傳>k的第一個element的ptr。prev(it) or it-1會回傳it的前一個ptr
+- [621. Task Scheduler](621.%20Task%20Scheduler.cpp) 只記task的freq，把他們存成max heap(最多26個elements)，並利用queue決定什麼時候從pq被pop的element要push回去
