@@ -17,3 +17,4 @@
 ###### 1/15
 - `priority_queue<type>`是max heap，`priority_queue<type, vector<type>, greater<type>>`是min heap
 - [703. Kth Largest Element in a Stream](703.%20Kth%20Largest%20Element%20in%20a%20Stream.cpp) 求一串數字裡第k大的數字時，可以用min heap存這些數字，並確保min heap的size==k，比k大就pop。這樣min heap的top就會是所求
+- [90. Subsets II](90.%20Subsets%20II.cpp) 有重複的數字並要求所有subset。為了避免產生重複的subset，要調整取的index
