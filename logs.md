@@ -21,3 +21,5 @@
 - map: lower_bound(k)回傳≥k的第一個element的ptr，upper_bound(k)回傳>k的第一個element的ptr。prev(it) or it-1會回傳it的前一個ptr
 - [621. Task Scheduler](621.%20Task%20Scheduler.cpp) 只記task的freq，把他們存成max heap(最多26個elements)，並利用queue決定什麼時候從pq被pop的element要push回去
 - [134. Gas Station](134.%20Gas%20Station.cpp) 要是sum(gas[i])-sum(cost[i])≥0的話則必有解，用greedy只需要O(n)。greedy會成功是因為任何經過的gas station的sum(gas[i])-sum(cost[i]) prefix都有surplus或至少沒有deficit，否則也不可能走得到這裡，那扣除了prefix之後(也就是考慮已經經過的gas station是starting point的可能性)只會更無法達成條件，因此可以一次否決掉已經經過的gas station，在剩下的gas station中找答案
+##### 1/16
+- [678. Valid Parenthesis String](678.%20Valid%20Parenthesis%20String.cpp.cpp) 紀錄左括號的可能range，檢查兩種錯誤情形：左括號太多或右括號太多。
