@@ -24,4 +24,4 @@
 ###### 1/16
 - [678. Valid Parenthesis String](678.%20Valid%20Parenthesis%20String.cpp.cpp) 紀錄左括號的可能range，檢查兩種錯誤情形：左括號太多或右括號太多。
 ###### 1/17
-- [518. Coin Change II](518.%20Coin%20Change%20II.cpp) 2D dp，但因為只需要用到兩個row，且計算有順序，所以可只用一排row的記憶體來算
+- [518. Coin Change II](518.%20Coin%20Change%20II.cpp) 2D dp，但因為只需要用到兩個row，且計算有順序，所以可只用一排row的記憶體來算。[494. Target Sum](494.%20Target%20Sum.cpp) 可以用backtrack+caching的方式解，也可以用2D dp，而且也只需要兩個row就可完成計算
