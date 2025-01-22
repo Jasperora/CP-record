@@ -27,3 +27,4 @@
 - [518. Coin Change II](518.%20Coin%20Change%20II.cpp) 2D dp，但因為只需要用到兩個row，且計算有順序，所以可只用一排row的記憶體來算。[494. Target Sum](494.%20Target%20Sum.cpp) 可以用backtrack+caching的方式解，也可以用2D dp，而且也只需要兩個row就可完成計算
 ###### 1/21
 - [130. Surrounded Regions](130.%20Surrounded%20Regions.cpp) 找沒被surrounded的更快，只要從外圍開始dfs就可
+- [4. Median of Two Sorted Arrays](4.%20Median%20of%20Two%20Sorted%20Arrays.cpp) 挑長度小的一邊做binary search，並根據次結果把兩個array拆成左右兩邊，檢查這樣是否符合條件，不符合就繼續binary search，符合就可以找出答案
