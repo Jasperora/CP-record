@@ -28,3 +28,5 @@
 ###### 1/21
 - [130. Surrounded Regions](130.%20Surrounded%20Regions.cpp) 找沒被surrounded的更快，只要從外圍開始dfs就可
 - [4. Median of Two Sorted Arrays](4.%20Median%20of%20Two%20Sorted%20Arrays.cpp) 挑長度小的一邊做binary search，並根據次結果把兩個array拆成左右兩邊，檢查這樣是否符合條件，不符合就繼續binary search，符合就可以找出答案
+###### 1/22
+- [124. Binary Tree Maximum Path Sum](124.%20Binary%20Tree%20Maximum%20Path%20Sum.cpp) 如果此node底下的path sum比目前的path sum還大就更新，但向上回傳時只能回傳直線的path
