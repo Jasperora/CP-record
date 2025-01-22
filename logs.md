@@ -30,3 +30,5 @@
 - [4. Median of Two Sorted Arrays](4.%20Median%20of%20Two%20Sorted%20Arrays.cpp) 挑長度小的一邊做binary search，並根據次結果把兩個array拆成左右兩邊，檢查這樣是否符合條件，不符合就繼續binary search，符合就可以找出答案
 ###### 1/22
 - [124. Binary Tree Maximum Path Sum](124.%20Binary%20Tree%20Maximum%20Path%20Sum.cpp) 如果此node底下的path sum比目前的path sum還大就更新，但向上回傳時只能回傳直線的path
+- [297. Serialize and Deserialize Binary Tree](297.%20Serialize%20and%20Deserialize%20Binary%20Tree.cpp) 用preorder traversal就可以encode binary tree，用dfs decode
+- [1851. Minimum Interval to Include Each Query](1851.%20Minimum%20Interval%20to%20Include%20Each%20Query.cpp) ascending sort queries和intervals，之後從queries小到大去把已經碰到的intervals加到一個min heap(interval的長度，interval的右端點)，當query超過interval右端點時就把它pop掉
