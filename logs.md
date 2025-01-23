@@ -32,4 +32,6 @@
 - [124. Binary Tree Maximum Path Sum](124.%20Binary%20Tree%20Maximum%20Path%20Sum.cpp) 如果此node底下的path sum比目前的path sum還大就更新，但向上回傳時只能回傳直線的path
 - [297. Serialize and Deserialize Binary Tree](297.%20Serialize%20and%20Deserialize%20Binary%20Tree.cpp) 用preorder traversal就可以encode binary tree，用dfs decode
 - [1851. Minimum Interval to Include Each Query](1851.%20Minimum%20Interval%20to%20Include%20Each%20Query.cpp) ascending sort queries和intervals，之後從queries小到大去把已經碰到的intervals加到一個min heap(interval的長度，interval的右端點)，當query超過interval右端點時就把它pop掉
+###### 1/23
 - [211. Design Add and Search Words Data Structure](211.%20Design%20Add%20and%20Search%20Words%20Data%20Structure.cpp) 用Trie，遇到.時用dfs
+- [295. Find Median from Data Stream](295.%20Find%20Median%20from%20Data%20Stream.cpp) 把數字用一個min heap、一個max heap存。min heap最小的數比max heap最大的數還要大，此時median只跟這兩個heap的top有關
