@@ -36,3 +36,5 @@
 - [211. Design Add and Search Words Data Structure](211.%20Design%20Add%20and%20Search%20Words%20Data%20Structure.cpp) 用Trie，遇到.時用dfs
 - [295. Find Median from Data Stream](295.%20Find%20Median%20from%20Data%20Stream.cpp) 把數字用一個min heap、一個max heap存。min heap最小的數比max heap最大的數還要大，此時median只跟這兩個heap的top有關
 - [684. Redundant Connection](684.%20Redundant%20Connection.cpp) 用union-find演算法，一旦遇到edge兩端同屬一個union即是答案
+###### 2/9
+- [2013. Detect Squares](2013.%20Detect%20Squares.cpp) 先找可能成為對角的點，在檢查有沒有可能形成正方形，這麼做比列出任三點檢查正方形快
