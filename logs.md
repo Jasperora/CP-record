@@ -41,3 +41,4 @@
 - [210. Course and Schedule II](210.%20Course%20Schedule%20II.cpp) 用dfs完成topological sort
 ###### 2/11
 - [212. Word Search II](212.%20Word%20Search%20II.cpp) 把所有要找的word加進去trie，一旦dfs search出來的prefix不對就停止search以增加效率
+- [329. Longest Increasing Path in a Matrix](329.%20Longest%20Increasing%20Path%20in%20a%20Matrix.cpp) 用dfs算LIP(Longeset Increasing Path)，且LIP算過之後可以重複利用，所以可用dp
