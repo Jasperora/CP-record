@@ -39,3 +39,5 @@
 ###### 2/9
 - [2013. Detect Squares](2013.%20Detect%20Squares.cpp) 先找可能成為對角的點，在檢查有沒有可能形成正方形，這麼做比列出任三點檢查正方形快
 - [210. Course and Schedule II](210.%20Course%20Schedule%20II.cpp) 用dfs完成topological sort
+###### 2/11
+- [212. Word Search II](212.%20Word%20Search%20II.cpp) 把所有要找的word加進去trie，一旦dfs search出來的prefix不對就停止search以增加效率
