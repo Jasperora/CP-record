@@ -37,8 +37,10 @@
 - [295. Find Median from Data Stream](295.%20Find%20Median%20from%20Data%20Stream.cpp) 把數字用一個min heap、一個max heap存。min heap最小的數比max heap最大的數還要大，此時median只跟這兩個heap的top有關
 - [684. Redundant Connection](684.%20Redundant%20Connection.cpp) 用union-find演算法，一旦遇到edge兩端同屬一個union即是答案
 ###### 2/9
-- [2013. Detect Squares](2013.%20Detect%20Squares.cpp) 先找可能成為對角的點，在檢查有沒有可能形成正方形，這麼做比列出任三點檢查正方形快
+- [2013. Detect Squares](2013.%20Detect%20Squares.cpp) 先找可能成為對角的點，再檢查有沒有可能形成正方形，這麼做比列出任三點檢查正方形快
 - [210. Course and Schedule II](210.%20Course%20Schedule%20II.cpp) 用dfs完成topological sort
 ###### 2/11
 - [212. Word Search II](212.%20Word%20Search%20II.cpp) 把所有要找的word加進去trie，一旦dfs search出來的prefix不對就停止search以增加效率
 - [329. Longest Increasing Path in a Matrix](329.%20Longest%20Increasing%20Path%20in%20a%20Matrix.cpp) 用dfs算LIP(Longeset Increasing Path)，且LIP算過之後可以重複利用，所以可用dp
+###### 2/14
+- [127. Word Ladder](127.%20Word%20Ladder.cpp) 難點在於把word用短一點的時間轉成adjacency list，辦法是用一個ｍap把有著相同pattern的word放在一起。做完graph之後用bfs就可以了
