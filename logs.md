@@ -44,3 +44,4 @@
 - [329. Longest Increasing Path in a Matrix](329.%20Longest%20Increasing%20Path%20in%20a%20Matrix.cpp) 用dfs算LIP(Longeset Increasing Path)，且LIP算過之後可以重複利用，所以可用dp
 ###### 2/14
 - [127. Word Ladder](127.%20Word%20Ladder.cpp) 難點在於把word用短一點的時間轉成adjacency list，辦法是用一個ｍap把有著相同pattern的word放在一起。做完graph之後用bfs就可以了
+- [115. Distinct Subsequences](115.%20Distinct%20Subsequences.cpp) 2D dp，用dfs解不用把整張表算完，不要用for loop去算dp的每一個entry
