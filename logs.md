@@ -46,4 +46,5 @@
 - [127. Word Ladder](127.%20Word%20Ladder.cpp) 難點在於把word用短一點的時間轉成adjacency list，辦法是用一個ｍap把有著相同pattern的word放在一起。做完graph之後用bfs就可以了
 - [115. Distinct Subsequences](115.%20Distinct%20Subsequences.cpp) 2D dp，用dfs解不用把整張表算完，不要用for loop去算dp的每一個entry
 ###### 2/17
-- [743. Network Delay Time](743.%20Network%20Delay%20Time.cpp) Dijkstra's algorithm
+- [743. Network Delay Time](743.%20Network%20Delay%20Time.cpp) Dijkstra's algorithm，用bfs把neighboring node按照distance加到min heap，從min heap top裡挑沒有visit過的走
+- [1584. Min Cost to Connect All Points](1584.%20Min%20Cost%20to%20Connect%20All%20Points.cpp) Minimum Spanning Truee(MST)，需要Prim's algorithm，使用min heap，greedy的挑距離最短的加入現有的spanning tree，直到加完全部的點
