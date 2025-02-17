@@ -45,3 +45,5 @@
 ###### 2/14
 - [127. Word Ladder](127.%20Word%20Ladder.cpp) 難點在於把word用短一點的時間轉成adjacency list，辦法是用一個ｍap把有著相同pattern的word放在一起。做完graph之後用bfs就可以了
 - [115. Distinct Subsequences](115.%20Distinct%20Subsequences.cpp) 2D dp，用dfs解不用把整張表算完，不要用for loop去算dp的每一個entry
+###### 2/17
+- [743. Network Delay Time](743.%20Network%20Delay%20Time.cpp) Dijkstra's algorithm
