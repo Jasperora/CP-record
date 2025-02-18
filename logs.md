@@ -48,3 +48,5 @@
 ###### 2/17
 - [743. Network Delay Time](743.%20Network%20Delay%20Time.cpp) Dijkstra's algorithm，用bfs把neighboring node按照distance加到min heap，從min heap top裡挑沒有visit過的走
 - [1584. Min Cost to Connect All Points](1584.%20Min%20Cost%20to%20Connect%20All%20Points.cpp) Minimum Spanning Truee(MST)，需要Prim's algorithm，使用min heap，greedy的挑距離最短的加入現有的spanning tree，直到加完全部的點
+###### 2/18
+- [787. Cheapest Flights Within K Stops](787.%20Cheapest%20Flights%20Within%20K%20Stops.cpp) 用Bellman-Ford algorithm可以強制限定最多能走幾個stop，注意要多開一個tmp array否則會錯
