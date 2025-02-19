@@ -51,3 +51,5 @@
 ###### 2/18
 - [787. Cheapest Flights Within K Stops](787.%20Cheapest%20Flights%20Within%20K%20Stops.cpp) 用Bellman-Ford algorithm可以強制限定最多能走幾個stop，注意要多開一個tmp array否則會錯
 - [332. Reconstruct Itinerary](332.%20Reconstruct%20Itinerary.cpp) 用dfs依序從lexicographic order小到大找，但這樣太慢，要用Hierholzer's algorithm才會AC
+###### 2/19
+- [778. Swim in Rising Water](778.%20Swim%20in%20Rising%20Water.cpp) Dijkstra's algorithm greedy的走水位低的，注意要放進min heap的不是當前走到的水位，而是整條path上的最高水位
