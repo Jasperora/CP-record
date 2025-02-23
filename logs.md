@@ -53,3 +53,5 @@
 - [332. Reconstruct Itinerary](332.%20Reconstruct%20Itinerary.cpp) 用dfs依序從lexicographic order小到大找，但這樣太慢，要用Hierholzer's algorithm才會AC
 ###### 2/19
 - [778. Swim in Rising Water](778.%20Swim%20in%20Rising%20Water.cpp) Dijkstra's algorithm greedy的走水位低的，注意要放進min heap的不是當前走到的水位，而是整條path上的最高水位
+###### 2/23
+- [10. Regular Expression Matching](10.%20Regular%20Expression%20Matching.cpp) 2D dp，針對'*'去特別處理
