@@ -9,32 +9,27 @@
  * };
  */
 
-class Solution {
-public:
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        ListNode *head = new ListNode(0);
-        ListNode *cur = head;
-        int sum, car = 0;
-        while(l1||l2||car){
-            sum = car;
-            if(l1){
-                sum += l1->val;
-                l1 = l1->next;
+ class Solution {
+    public:
+        ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+            ListNode* cur = new ListNode(0);
+            ListNode* ret = cur;
+            int sum = 0;
+            while(l1||l2||sum){
+                if(l1) {
+                    sum += l1->val;
+                    l1 = l1->next;
+                }
+                if(l2) {
+                    sum += l2->val;
+                    l2 = l2->next;
+                }
+    
+                cur->next = new ListNode(sum%10);
+                cur = cur->next;
+                sum /= 10;
             }
-            if(l2){
-                sum += l2->val;
-                l2 = l2->next;
-            }
-            if(sum>=10){
-                car = 1;
-                sum -= 10;
-            }else{
-                car = 0;
-            }
-            cur->next = new ListNode(sum);
-            cur = cur->next;
+            return ret->next;
         }
-        return head->next;
-
-    }
-};
+    };
+    
