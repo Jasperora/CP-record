@@ -1,25 +1,18 @@
 class Solution {
-public:
-    vector<int> productExceptSelf(vector<int>& nums) {
-        int zero_cnt = 0;
-        int product = 1;
-        for(int& n : nums){
-            if(n==0) ++zero_cnt;
-            else product *= n;
-        }
-        vector<int> ans;
-        if(zero_cnt==0){
-            for(int& n : nums){
-                ans.push_back(product/n);
+    public:
+        vector<int> productExceptSelf(vector<int>& nums) {
+            int l = nums.size();
+            vector<int> ret(l, 1);
+            int left_product = 1, right_product = 1;
+            for(int i = 0; i < l; ++i){
+                ret[i] = left_product;
+                left_product *= nums[i];
             }
-        }else if(zero_cnt==1){
-            for(int& n : nums){
-                if(n==0) ans.push_back(product);
-                else ans.push_back(0);
+            for(int i = l-1; i >= 0; --i){
+                ret[i] *= right_product;
+                right_product *= nums[i];
             }
-        }else{
-            for(int i = 0; i < nums.size(); ++i) ans.push_back(0);
+            return ret;
         }
-        return ans;
-    }
-};
+    };
+    
