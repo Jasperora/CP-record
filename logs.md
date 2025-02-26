@@ -55,3 +55,5 @@
 - [778. Swim in Rising Water](778.%20Swim%20in%20Rising%20Water.cpp) Dijkstra's algorithm greedy的走水位低的，注意要放進min heap的不是當前走到的水位，而是整條path上的最高水位
 ###### 2/23
 - [10. Regular Expression Matching](10.%20Regular%20Expression%20Matching.cpp) 2D dp，針對'*'去特別處理
+###### 2/26
+- [128. Longest Consecutive Sequence](128.%20Longest%20Consecutive%20Sequence.cpp) 限制要O(N)，用unordered_set找到那些可能是開頭的數字去算他後面有幾個
