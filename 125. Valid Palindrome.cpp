@@ -1,19 +1,33 @@
 class Solution {
-public:
-    bool isPalindrome(string s) {
-        string reduced_s = "";
-        for(auto& c : s){
-            if((c>='A'&&c<='Z')||(c>='a'&&c<='z')||(c>='0'&&c<='9')){
-                if(c>='A'&&c<='A'+26){
-                    c -= ('A'-'a');
+    private:
+        bool isEnglish(char c){
+            return (c>='a'&&c<='z') || (c>='A'&&c<='Z');
+        }
+        bool isNumeric(char c){
+            return c>='0'&&c<='9';
+        }
+    public:
+        bool isPalindrome(string s) {
+            int i = 0, j = s.size() - 1;
+            int diff = abs('a'-'A');
+            while(i<j){
+                if(!isEnglish(s[i])&&!isNumeric(s[i])){
+                    ++i;
+                    continue;
                 }
-                reduced_s.push_back(c);
+                if(!isEnglish(s[j])&&!isNumeric(s[j])){
+                    --j;
+                    continue;
+                }
+                if(s[i]==s[j] || (isEnglish(s[i])&&isEnglish(s[j])&&abs(s[i]-s[j])==diff)){
+                    ++i;
+                    --j;
+                }else {
+                    return false;
+                }
+    
             }
+            return true;
         }
-        bool ans = true;
-        for(int i = 0; 2*i < reduced_s.size(); ++i){
-            ans &= (reduced_s[i]==reduced_s[reduced_s.size()-1-i]);
-        }
-        return ans;
-    }
-};
+    };
+    
