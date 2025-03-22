@@ -57,3 +57,5 @@
 - [10. Regular Expression Matching](10.%20Regular%20Expression%20Matching.cpp) 2D dp，針對'*'去特別處理
 ###### 2/26
 - [128. Longest Consecutive Sequence](128.%20Longest%20Consecutive%20Sequence.cpp) 限制要O(N)，用unordered_set找到那些可能是開頭的數字去算他後面有幾個
+###### 3/22
+- [41. First Missing Positive](41.%20First%20Missing%20Positive.cpp) cyclic sort，in-place的把數字放到對應的位置，記得用while loop而不是for loop才不會出錯
