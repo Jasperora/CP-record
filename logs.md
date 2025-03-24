@@ -59,3 +59,5 @@
 - [128. Longest Consecutive Sequence](128.%20Longest%20Consecutive%20Sequence.cpp) 限制要O(N)，用unordered_set找到那些可能是開頭的數字去算他後面有幾個
 ###### 3/22
 - [41. First Missing Positive](41.%20First%20Missing%20Positive.cpp) cyclic sort，in-place的把數字放到對應的位置，記得用while loop而不是for loop才不會出錯
+###### 3/24
+- [659. Split Array into Consecutive Subsequences](659.%20Split%20Array%20into%20Consecutive%20Subsequences.cpp) greedy, Check if is needed first and then make it three consecutive numbers. If the order is reversed, then it would WA. e.g. [1,2,3,4,5,5,6,7]
