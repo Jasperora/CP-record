@@ -8,45 +8,41 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-
 class Solution {
-public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        ListNode *head, *cur;
-        if(!list1&&!list2) return list1;
-        else if(!list1) return list2;
-        else if(!list2) return list1;
-        else{
-            if(list1->val<list2->val){
-                head = list1;
-                list1 = list1->next;
+    public:
+        ListNode* merge(ListNode* l1, ListNode* l2){
+            if(!l1 && !l2) return nullptr;
+            if(!l1) return l2;
+            if(!l2) return l1;
+            if(l1->val < l2->val){
+                ListNode* tmp = l1->next;
+                l1->next = merge(tmp, l2);
+                return l1;
             }else{
-                head = list2;
-                list2 = list2->next;
+                ListNode* tmp = l2->next;
+                l2->next = merge(tmp, l1);
+                return l2;
             }
-            cur = head;
-            while(list1&&list2){
-                if(list1->val<list2->val){
-                    cur->next = list1;
-                    cur = list1;
+    
+        }
+        ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+            return merge(list1, list2);
+        }
+        ListNode* mergeTwoLists2(ListNode* list1, ListNode* list2) {
+            ListNode dummy = ListNode(0);
+            ListNode* tail = &dummy;
+            while(list1 && list2){
+                if(list1->val < list2->val){
+                    tail->next = list1;
                     list1 = list1->next;
                 }else{
-                    cur->next = list2;
-                    cur = list2;
+                    tail->next = list2;
                     list2 = list2->next;
                 }
+                tail = tail->next;
             }
+            if(list1) tail->next = list1;
+            if(list2) tail->next = list2;
+            return dummy.next;
         }
-        while(list1){
-            cur->next = list1;
-            cur = list1;
-            list1 = list1->next;
-        }
-        while(list2){
-            cur->next = list2;
-            cur = list2;
-            list2 = list2->next;
-        }
-        return head;
-    }
-};
+    };
