@@ -9,19 +9,19 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-
 class Solution {
-public:
-    vector<int> elements;
-    void dfs(TreeNode* root, int& k){
-        if(!root) return;
-        dfs(root->left, k);
-        elements.push_back(root->val);
-        if(elements.size()==k) return;
-        dfs(root->right, k);
-    }
-    int kthSmallest(TreeNode* root, int k) {
-        dfs(root, k);
-        return elements[k-1];
-    }
-};
+    public:
+        int cnt;
+        int search(TreeNode* node){
+            if(!node) return 0;
+            int left = search(node->left);
+            if(cnt==0) return left;
+            cnt--;
+            if(cnt==0) return node->val;
+            return search(node->right);
+        }
+        int kthSmallest(TreeNode* root, int k) {
+            cnt = k;
+            return search(root);
+        }
+    };
