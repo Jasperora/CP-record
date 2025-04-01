@@ -1,27 +1,25 @@
 class Solution {
-public:
-    int jump(vector<int>& nums) {
-        if(nums.size()==1) return 0;
-        int cnt = 0, ptr = 0;
-        while(ptr<nums.size()-1){
-            int max_jump = 0, max_i = ptr;
-            cout << ptr+nums[ptr] << '\n';
-            if(nums[ptr]+ptr>=nums.size()-1){
-                ++cnt;
-                break;
-            }else{
-                for(int i = ptr+1; i <= ptr+nums[ptr]; ++i){
-                    if(i+nums[i]>max_jump){
-                        max_jump = i+nums[i];
-                        max_i = i;
+    public:
+        int jump(vector<int>& nums) {
+            int pos = 0;
+            int n = nums.size();
+            int ret = 0;
+            while(pos < n-1){
+                int mx = 0;
+                int mx_idx = 0;
+                for(int i = 1; i <= nums[pos]; ++i){
+                    if(pos+i >= n-1){
+                        ++ret;
+                        return ret;
+                    }
+                    if(pos+i < n && i+nums[pos+i] > mx){
+                        mx = i+nums[pos+i];
+                        mx_idx = i;
                     }
                 }
-                
-                ptr = max_i;
-                ++cnt;
+                pos += mx_idx;
+                ++ret;
             }
-            // cout << ptr << '\n';
+            return ret;
         }
-        return cnt;
-    }
-};
+    };
