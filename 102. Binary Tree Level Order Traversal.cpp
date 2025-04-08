@@ -10,30 +10,23 @@
  * };
  */
 class Solution {
-public:
-    vector<vector<int> > ret;
-    queue<TreeNode*> q;
-    void search(){
-        if(q.empty()) return;
-        vector<int> level;
-        vector<TreeNode*> next_level;
-        while(!q.empty()){
-            level.push_back(q.front()->val);
-            if(q.front()->left!=nullptr)
-                next_level.push_back(q.front()->left);
-            if(q.front()->right!=nullptr)
-                next_level.push_back(q.front()->right);
-            q.pop();
+    public:
+        vector<vector<int>> levelOrder(TreeNode* root) {
+            if(!root) return {};
+            queue<TreeNode*> q;
+            vector<vector<int>> ret;
+            q.push(root);
+            while(!q.empty()){
+                int n = q.size();
+                vector<int> curLevel(n);
+                for(int i = 0; i < n; ++i){
+                    curLevel[i] = q.front()->val;
+                    if(q.front()->left) q.push(q.front()->left);
+                    if(q.front()->right) q.push(q.front()->right);
+                    q.pop();
+                }
+                ret.push_back(curLevel);
+            }
+            return ret;
         }
-        ret.push_back(level);
-        for(auto& node : next_level)
-            q.push(node);
-        search();
-    }
-    vector<vector<int>> levelOrder(TreeNode* root) {
-        if(root==nullptr) return ret;
-        q.push(root);
-        search();
-        return ret;
-    }
-};
+    };
