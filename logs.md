@@ -63,3 +63,8 @@
 - [659. Split Array into Consecutive Subsequences](659.%20Split%20Array%20into%20Consecutive%20Subsequences.cpp) greedy, Check if is needed first and then make it three consecutive numbers. If the order is reversed, then it would WA. e.g. [1,2,3,4,5,5,6,7]
 ###### 4/5
 - 要新開一個pointer時要用ListNode* ptr = new ListNode(0)而不能用ListNode* ptr(0)。後者只會回傳一個nullptr
+###### 4/12
+- binary search時用`int mid = left + (right - left) >> 1`比`int mid = (left + right) >> 1`好，因為後者可能會overflow
+- binary search的重點在一次要排除一半的可能性，不一定要跟找數字大小有關
+- 可用stack模擬recursion
+- [75. Sort Colors](75.%20Sort%20Colors.cpp) Dutch National Flag problem

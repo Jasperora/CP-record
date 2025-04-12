@@ -1,13 +1,20 @@
 class Solution {
     public:
         void sortColors(vector<int>& nums) {
-            vector<int> freq(3);
-            for(auto& n : nums) ++freq[n];
-            int cnt = 0;
-            for(int i = 0; i < 3; ++i){
-                while(freq[i]--){
-                    nums[cnt] = i;
-                    ++cnt;
+            int left = 0, mid = 0, right = nums.size() - 1;
+            while(mid <= right){
+                if(nums[mid] == 0){
+                    swap(nums[left], nums[mid]);
+                    ++left;
+                    ++mid;
+                }else if(nums[mid] == 1){
+                    ++mid;
+                }else{
+                    // can't ++mid here
+                    // because if after swapping, nums[right] == 0
+                    // ++mid will not put it to right place
+                    swap(nums[mid], nums[right]);
+                    --right;
                 }
             }
         }
