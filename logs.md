@@ -68,3 +68,6 @@
 - binary search的重點在一次要排除一半的可能性，不一定要跟找數字大小有關
 - 可用stack模擬recursion
 - [75. Sort Colors](75.%20Sort%20Colors.cpp) Dutch National Flag problem
+###### 4/13
+- 判斷兩個intervals A, B有沒有overlap時，可用`max(A.start, B.start) < min(A.end, B.end)`來做，if true有overlap。因為這代表some event starts before some event ends
+- [731. My Calendar II](731.%20My%20Calendar%20II.cpp) 可用[sweep line algorithm](https://medium.com/@stealop/line-sweep-algorithm-bf602a3d0a22)
