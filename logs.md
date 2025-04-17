@@ -71,3 +71,7 @@
 ###### 4/13
 - 判斷兩個intervals A, B有沒有overlap時，可用`max(A.start, B.start) < min(A.end, B.end)`來做，if true有overlap。因為這代表some event starts before some event ends
 - [731. My Calendar II](731.%20My%20Calendar%20II.cpp) 可用[sweep line algorithm](https://medium.com/@stealop/line-sweep-algorithm-bf602a3d0a22)
+###### 4/16
+- [373. Find K Pairs with Smallest Sums](373.%20Find%20K%20Pairs%20with%20Smallest%20Sums.cpp) 用min heap，先把最小的k個pair放進去，然後pop出來的時候再push進去新的pair。也可以用binary search
+###### 4/17
+- [752. Open the Lock](752.%20Open%20the%20Lock.cpp) 用bfs，注意要先設定visited再放進queue裡，而不是等到pop後才算visited。否則可能第一個還沒pop，第二個重複的又被加到queue裡
