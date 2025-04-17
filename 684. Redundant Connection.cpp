@@ -1,43 +1,49 @@
-class Solution {
-private:
-    vector<int> ret;
-    // find parent
-    int find(int i){
-        while(i!=parent[i]){
-            i = parent[i];
-        }
-       return i;
-    }
-    void union_combine(int a, int b){
-        if(find(a)==find(b)){
-            ret = {a, b};
-            return;
-        }else{
-            if(rank[find(a)]==rank[find(b)]){
-                ++rank[find(a)];
-                parent[find(b)] = find(a);
-            }else if(rank[find(a)]>rank[find(b)]){
-                ++rank[find(a)];
-                parent[find(b)] = find(a);
-            }else{
-                ++rank[find(b)];
-                parent[find(a)] = find(b);
-            }
-        }
-    }
+class UnionFind {
 public:
-    vector<int> parent, rank;
+    vector<int> root;
+    vector<int> rank;
+    int size;
+    UnionFind(int size){
+        this->size = size;
+        root.resize(size);
+        rank.resize(size, 1);
+        for(int i = 0; i < size; ++i)
+            root[i] = i;
+    }
+    int find(int x){
+        if(x != root[x])
+            root[x] = find(root[x]);
+        return root[x];
+    }
+    bool unionSet(int x, int y){
+        int rootX = find(x), rootY = find(y);
+        if(rootX != rootY){
+            if(rank[rootX] < rank[rootY]){
+                root[rootX] = rootY;
+            }else if(rank[rootX] > rank[rootY]){
+                root[rootY] = rootX;
+            }else{
+                root[rootX] = rootY;
+                ++rank[rootY];
+            }
+            // different disjoint set
+            return false;
+        }
+        // same disjoint set
+        return true;
+    }
+};
+class Solution {
+public:
     vector<int> findRedundantConnection(vector<vector<int>>& edges) {
         int n = edges.size();
-        parent.resize(n+1);
-        rank.resize(n+1);
-        for(int i = 1; i <= n; ++i){
-            parent[i] = i;
-            rank[i] = 1;
-        }
+        UnionFind uf(n);
         for(auto& e : edges){
-            union_combine(e[0], e[1]);
+            if(uf.unionSet(e[0] - 1, e[1] - 1))
+                return {e[0], e[1]};
         }
-        return ret;
+
+        // impossible to be here
+        return {};
     }
 };
