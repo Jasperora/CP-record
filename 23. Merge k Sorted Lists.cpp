@@ -8,56 +8,35 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-
 class Solution {
-public:
-    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        ListNode *head, *cur;
-        if(!list1&&!list2) return list1;
-        else if(!list1) return list2;
-        else if(!list2) return list1;
-        else{
-            if(list1->val<list2->val){
-                head = list1;
-                list1 = list1->next;
-            }else{
-                head = list2;
-                list2 = list2->next;
-            }
-            cur = head;
-            while(list1&&list2){
-                if(list1->val<list2->val){
-                    cur->next = list1;
-                    cur = list1;
-                    list1 = list1->next;
+    public:
+        ListNode* mergeTwoLists(ListNode* l1, ListNode* l2){
+            ListNode* dummy = new ListNode();
+            ListNode* cur = dummy;
+            while(l1 && l2){
+                if(l1->val < l2->val){
+                    cur->next = l1;
+                    l1 = l1->next;
                 }else{
-                    cur->next = list2;
-                    cur = list2;
-                    list2 = list2->next;
+                    cur->next = l2;
+                    l2 = l2->next;
                 }
+                cur = cur->next;
             }
+            if(l1) cur->next = l1;
+            else if(l2) cur->next = l2;
+            return dummy->next;
         }
-        while(list1){
-            cur->next = list1;
-            cur = list1;
-            list1 = list1->next;
+        ListNode* divide(vector<ListNode*>& lists, int left, int right){
+            if(left == right) return lists[left];
+            else if(left > right) return nullptr;
+            int mid = (left + right) >> 1;
+            ListNode* l1 = divide(lists, left, mid);
+            ListNode* l2 = divide(lists, mid + 1, right);
+            return mergeTwoLists(l1, l2);
         }
-        while(list2){
-            cur->next = list2;
-            cur = list2;
-            list2 = list2->next;
+        ListNode* mergeKLists(vector<ListNode*>& lists) {
+            if(lists.size() == 0) return nullptr;
+            return divide(lists, 0, lists.size() - 1);
         }
-        return head;
-    }
-    ListNode* divide(vector<ListNode*>& lists, int left, int right){
-        if(left==right) return lists[left];
-        int mid = (left+right)>>1;
-        ListNode* l1 = divide(lists, left, mid);
-        ListNode* l2 = divide(lists, mid+1, right);
-        return mergeTwoLists(l1, l2);
-    }
-    ListNode* mergeKLists(vector<ListNode*>& lists) {
-        if(lists.empty()) return nullptr;
-        return divide(lists, 0, lists.size()-1);
-    }
-};
+    };
