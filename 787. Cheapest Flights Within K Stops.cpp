@@ -1,26 +1,26 @@
 class Solution {
     public:
         int findCheapestPrice(int n, vector<vector<int>>& flights, int src, int dst, int k) {
-            int prices[n];
-            fill(prices, prices+n, 2147483647);
-            prices[src] = 0;
-    
-            int tmp_prices[n];
-            for(int i = 0; i < k+1; ++i){
-                for(int j = 0; j < n; ++j) tmp_prices[j] = prices[j];
-    
-                for(auto& f : flights){
-                    // f[0]: src, f[1]: dst, f[2]: price
-                    if(prices[f[0]]==2147483647) continue;
-                    if(prices[f[0]]+f[2] < tmp_prices[f[1]]){
-                        tmp_prices[f[1]] = prices[f[0]] + f[2];
-                    }
+            vector<int> dist(n, INT_MAX);
+            dist[src] = 0;
+            // relax all edges by k + 1 times
+            for(int i = 0; i < k + 1; ++i){
+                // for not relax too much
+                vector<int> tmp_dist(dist.begin(), dist.end());
+                for(auto& flight : flights){
+                    int from = flight[0], to = flight[1], price = flight[2];
+                    // or it will overflow
+                    if(dist[from] == INT_MAX) continue;
+                    // use tmp_dist to store dist
+                    // but use dist to calculate new_dist
+                    int new_dist = dist[from] + price;
+                    if(tmp_dist[to] > new_dist)
+                        tmp_dist[to] = new_dist;
                 }
-    
-                for(int j = 0; j < n; ++j) prices[j] = tmp_prices[j];
+                for(int i = 0; i < n; ++i)
+                    dist[i] = tmp_dist[i];
             }
-            if(prices[dst]==2147483647) return -1;
-            return prices[dst];
+    
+            return (dist[dst] == INT_MAX) ? -1 : dist[dst];
         }
     };
-    
