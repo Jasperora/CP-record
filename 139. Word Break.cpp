@@ -1,16 +1,17 @@
 class Solution {
 public:
     bool wordBreak(string s, vector<string>& wordDict) {
-        bool dp[s.size()+1];
-        for(int i = 0; i < s.size(); ++i) dp[i] = false;
-        dp[s.size()] = true;
-        for(int i = s.size()-1; i >= 0; --i){
+        int n = s.size();
+        vector<bool> dp(n+1, false);
+        // base case: empty string
+        dp[0] = true;
+        for(int i = 1; i <= n; ++i){
             for(auto& word : wordDict){
-                if(word.size()<=s.size()-i && s.substr(i, word.size())==word){
-                    dp[i] |= dp[i+word.size()];
-                }
+                int w = word.size();
+                if(i >= w && s.substr(i-w, w) == word)
+                    dp[i] = dp[i] | dp[i-w];
             }
         }
-        return dp[0];
+        return dp[n];
     }
 };
