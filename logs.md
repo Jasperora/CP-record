@@ -75,3 +75,5 @@
 - [373. Find K Pairs with Smallest Sums](373.%20Find%20K%20Pairs%20with%20Smallest%20Sums.cpp) 用min heap，先把最小的k個pair放進去，然後pop出來的時候再push進去新的pair。也可以用binary search
 ###### 4/17
 - [752. Open the Lock](752.%20Open%20the%20Lock.cpp) 用bfs，注意要先設定visited再放進queue裡，而不是等到pop後才算visited。否則可能第一個還沒pop，第二個重複的又被加到queue裡
+###### 4/28
+- [1723. Find Minimum Time to Finish All Jobs](1723.%20Find%20Minimum%20Time%20to%20Finish%20All%20Jobs.cpp) [2305. Fair Distribution of Cookies](2305.%20Fair%20Distribution%20of%20Cookies.cpp) dfs backtracking。可用binary search、flag(空的人只給一次)、由大到小sort(希望儘早觸發不合格情況) pruning
