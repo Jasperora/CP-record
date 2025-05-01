@@ -81,3 +81,5 @@
 - [808. Soup Servings](808.%20Soup%20Servings.cpp) 隨著input增大，答案會接近1，所以大到某個程度後回傳1就好
 - [837. New 21 Game](837.%20New%2021%20Game.cpp) 要觀察出需要從後面的答案一路往前推，sliding window
 - [309. Best Time to Buy and Sell Stock with Cooldown](309.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Cooldown.cpp) state machine dp，就是比一般dp多需要幾個表格，每個dp表格代表一個state
+###### 5/1
+- [32. Longest Valid Parentheses](32.%20Longest%20Valid%20Parentheses.cpp) 用stack存index，stack裡如果有沒被pop掉的index，就代表這個index是個牆壁，分隔了valid parentheses的區域
