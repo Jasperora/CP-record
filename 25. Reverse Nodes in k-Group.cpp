@@ -9,7 +9,41 @@
  * };
  */
 
-class Solution {
+// recursive
+class Solution1 {
+public:
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        ListNode* dummy = new ListNode(0, head);
+        int len = 0;
+        ListNode* cur = head;
+        while(cur){
+            ++len;
+            if(len == k)
+                break;
+            cur = cur->next;
+        }
+        if(len < k)
+            return head;
+        // k = 2
+        // 1 -> 2 -> 3 -> 4 -> 5
+        //     cur
+        ListNode* nextHead = cur->next;
+        ListNode *prev = dummy, *current = head;
+        // dummy ->    1    ->  2  -> 3 -> 4 -> 5
+        //  prev -> current -> next
+        while(current != nextHead){
+            ListNode* next = current->next;
+            current->next = prev;
+            prev = current;
+            current = next;
+        }
+        dummy->next = cur;
+        head->next = reverseKGroup(nextHead, k);
+        return dummy->next;
+    }
+};
+// traverse whole list, reverse k nodes at a time
+class Solution2 {
 public:
     ListNode* getKthNode(ListNode* cur, int k){
         while(k-- && cur){
