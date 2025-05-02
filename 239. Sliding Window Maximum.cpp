@@ -1,4 +1,41 @@
-class Solution {
+// monotonic queue
+class Solution1 {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        // store index
+        // monotonic decreasing queue
+        // from left to right: nums[left] > nums[right] decreasing
+        deque<int> dq;
+        int n = nums.size();
+        for(int i = 0; i < k; ++i){
+            if(dq.empty()){
+                dq.push_back(i);
+            }else{
+                while(!dq.empty() && nums[i] >= nums[dq.back()]){
+                    dq.pop_back();
+                }
+                dq.push_back(i);
+            }
+        }
+        vector<int> ret(n - k + 1);
+        for(int i = k; i < n; ++i){
+            ret[i - k] = nums[dq.front()];
+            // pop back
+            while(!dq.empty() && nums[i] >= nums[dq.back()]){
+                dq.pop_back();
+            }
+            // pop front
+            while(!dq.empty() && dq.front() <= i - k){
+                dq.pop_front();
+            }
+            dq.push_back(i);
+        }
+        ret.back() = nums[dq.front()];
+        return ret;
+    }
+};
+// use count
+class Solution2 {
 public:
     vector<int> maxSlidingWindow(vector<int>& nums, int k) {
         vector<int> ret;
