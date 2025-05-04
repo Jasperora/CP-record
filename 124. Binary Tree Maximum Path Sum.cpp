@@ -9,25 +9,19 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-
 class Solution {
 public:
-    int ret = -1001;
-    map<TreeNode*, int> dp;
-    int maxRouteSum(TreeNode* root){
-        if(!root) return 0;
-        if(dp.count(root)) return dp[root];
-        if(!root->left&&!root->right){
-            dp[root] = root->val;
-            ret = max(ret, dp[root]);
-            return dp[root];
-        }
-        dp[root] = root->val + max(max(maxRouteSum(root->left), maxRouteSum(root->right)), 0);
-        ret = max(ret, max(dp[root], root->val+maxRouteSum(root->left)+maxRouteSum(root->right)));
-        return dp[root];
+    int ret;
+    int dfs(TreeNode* node){
+        if(!node) return 0;
+        int left = dfs(node->left);
+        int right = dfs(node->right);
+        ret = max(ret, node->val + left + right);
+        return max(0, node->val + max(left, right));
     }
     int maxPathSum(TreeNode* root) {
-        maxRouteSum(root);
+        ret = INT_MIN;
+        dfs(root);
         return ret;
     }
 };

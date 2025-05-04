@@ -1,61 +1,60 @@
-class TrieNode{
+class TrieNode {
 public:
     bool is_end;
     TrieNode* children[26];
-
     TrieNode(){
-        for(int i = 0; i < 26; ++i){
-            children[i] = nullptr;
-        }
         is_end = false;
-    }
-
-    void insert(string word){
-        TrieNode* cur = this;
-        for(auto& c : word){
-            int i = c-'a';
-            if(cur->children[i]==nullptr){
-                cur->children[i] = new TrieNode();
-            }
-            cur = cur->children[i];
-        }
-        cur->is_end = true;
+        for(int i = 0; i < 26; ++i)
+            children[i] = nullptr;
     }
 };
-
 class Solution {
-private:
-    vector<vector<bool> > visit;
-    vector<string> ret;
-    int n_row, n_col;
-    void dfs(vector<vector<char> >& board, int r, int c, TrieNode* node, string word){
-        if(r<0||c<0||r==n_row||c==n_col||visit[r][c]||!node->children[board[r][c]-'a'])
-            return;
-        visit[r][c] = true;
-        word.push_back(board[r][c]);
-        node = node->children[board[r][c]-'a'];
-        if(node->is_end){
-            ret.push_back(word);
-            node->is_end = false;
-        }
-        dfs(board, r-1, c, node, word);
-        dfs(board, r+1, c, node, word);
-        dfs(board, r, c-1, node, word);
-        dfs(board, r, c+1, node, word);
-        visit[r][c] = false;
-    }
 public:
-    vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
-        TrieNode root;
-        for(auto& word : words){
-            root.insert(word);
+    vector<vector<bool>> visited;
+    vector<string> ret;
+    unordered_set<string> counted;
+    string cur;
+    int m, n;
+    void dfs(const vector<vector<char>>& board, TrieNode* node, int i, int j){
+        if(i < 0 || i >= m || j < 0 || j >= n || visited[i][j]) return;
+        visited[i][j] = true;
+        if(node->children[board[i][j]-'a']){
+            cur.push_back(board[i][j]);
+            node = node->children[board[i][j]-'a'];
+            if(node->is_end && !counted.count(cur)){
+                ret.push_back(cur);
+                counted.insert(cur);
+            }
+            dfs(board, node, i+1, j);
+            dfs(board, node, i-1, j);
+            dfs(board, node, i, j+1);
+            dfs(board, node, i, j-1);
+            cur.pop_back();
         }
-        n_row = board.size();
-        n_col = board[0].size();
-        visit.resize(n_row, vector<bool>(n_col, false));
-        for(int i = 0; i < n_row; ++i){
-            for(int j = 0; j < n_col; ++j){
-                dfs(board, i, j, &root, "");
+        visited[i][j] = false;
+    }
+    vector<string> findWords(vector<vector<char>>& board, vector<string>& words) {
+        // add all words to trie
+        // use dfs starting from each grid to check
+        TrieNode* root = new TrieNode();
+        for(auto& word : words){
+            TrieNode* cur = root;
+            for(auto& c : word){
+                if(!cur->children[c-'a']){
+                    TrieNode* newTrieNode = new TrieNode();
+                    cur->children[c-'a'] = newTrieNode;
+                }
+                cur = cur->children[c-'a'];
+            }
+            cur->is_end = true;
+        }
+        m = board.size();
+        n = board[0].size();
+        visited.resize(m, vector<bool>(n, false));
+        cur = "";
+        for(int i = 0; i < m; ++i){
+            for(int j = 0; j < n; ++j){
+                dfs(board, root, i, j);
             }
         }
         return ret;
