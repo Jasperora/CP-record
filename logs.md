@@ -83,3 +83,6 @@
 - [309. Best Time to Buy and Sell Stock with Cooldown](309.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock%20with%20Cooldown.cpp) state machine dp，就是比一般dp多需要幾個表格，每個dp表格代表一個state
 ###### 5/1
 - [32. Longest Valid Parentheses](32.%20Longest%20Valid%20Parentheses.cpp) 用stack存index，stack裡如果有沒被pop掉的index，就代表這個index是個牆壁，分隔了valid parentheses的區域
+###### 5/6
+- [300. Longest Increasing Subsequence](300.%20Longest%20Increasing%20Subsequence.cpp)和[354. Russian Doll Envelopes](354.%20Russian%20Doll%20Envelopes.cpp)一樣都考longest increasing subsequence。有O(nlogn)的演算法
+- [843. Guess the Word](843.%20Guess%20the%20Word.cpp) 每次猜完一個詞後，會把similarity跟他不一樣的全刪掉，所以如果用和這個詞的similarity做分類的話，最壞情況會留下數量最大的那一類，所以minimize這個max可以最大程度的刪掉不可能的詞，進而節省猜的次數
