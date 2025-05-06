@@ -1,24 +1,22 @@
 class TimeMap {
-private:
-    map<string, map<int, string> > m;
 public:
+    unordered_map<string, map<int, string>> m;
     TimeMap() {
         
     }
     
     void set(string key, string value, int timestamp) {
-        m[key].insert({timestamp, value});
+        m[key][timestamp] = value;
     }
     
     string get(string key, int timestamp) {
-        if(!m.count(key)) return "";
+        // it has time > timestamp
+        // if it is begin, that means no one has time ≤ timestamp
         auto it = m[key].upper_bound(timestamp);
-        if(it==m[key].begin()) return "";
-        else return prev(it)->second;
+        if(it == m[key].begin()) return "";
+        else return prev(it, 1)->second;
     }
 };
-
-
 
 /**
  * Your TimeMap object will be instantiated and called as such:
