@@ -86,3 +86,4 @@
 ###### 5/6
 - [300. Longest Increasing Subsequence](300.%20Longest%20Increasing%20Subsequence.cpp)和[354. Russian Doll Envelopes](354.%20Russian%20Doll%20Envelopes.cpp)一樣都考longest increasing subsequence。有O(nlogn)的演算法
 - [843. Guess the Word](843.%20Guess%20the%20Word.cpp) 每次猜完一個詞後，會把similarity跟他不一樣的全刪掉，所以如果用和這個詞的similarity做分類的話，最壞情況會留下數量最大的那一類，所以minimize這個max可以最大程度的刪掉不可能的詞，進而節省猜的次數
+- [871. Minimum Number of Refueling Stops](871.%20Minimum%20Number%20of%20Refueling%20Stops.cpp) 把油箱的油先用完，再greedy的去加目前已經經過但還沒加油的stations中，油最多的那一站(後見之明)。就可以minimize加油的次數
